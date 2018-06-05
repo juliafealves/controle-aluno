@@ -42,6 +42,14 @@ public class AlunoTest {
     }
 
     /**
+     * Verifica se ocorre exceção ao criar um aluno com matrícula nula.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testAlunoComMatriculaInvalida(){
+        new Aluno("invalida", "Isaac Newton", "Física");
+    }
+
+    /**
      * Verifica se ocorre exceção ao criar um aluno com nome vazio.
      */
     @Test (expected = IllegalArgumentException.class)

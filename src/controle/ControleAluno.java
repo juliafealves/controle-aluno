@@ -8,6 +8,9 @@ public class ControleAluno {
 
     private HashMap<String, Aluno> alunos;
 
+    /**
+     * Inicializa as coleções do ControleAluno.
+     */
     public ControleAluno(){
         this.alunos = new HashMap<>();
     }
@@ -18,7 +21,7 @@ public class ControleAluno {
      * @param matricula Matrícula única do aluno.
      * @param nome Nome completo do aluno.
      * @param curso Curso do aluno.
-     * @return
+     * @return boolean Caso tenha cadastrado o aluno com sucesso.
      */
     public boolean cadastraAluno(String matricula, String nome, String curso) {
         if(this.alunos.containsKey(matricula))

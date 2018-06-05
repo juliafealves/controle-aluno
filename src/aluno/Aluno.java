@@ -24,6 +24,9 @@ public class Aluno {
         if(matricula == null || matricula.isEmpty())
             throw new IllegalArgumentException("Matrícula deve ser informada.");
 
+        if(!matricula.matches("[0-9]+"))
+            throw new IllegalArgumentException("Matrícula inválida.");
+
         if(nome == null || nome.isEmpty())
             throw new IllegalArgumentException("Nome deve ser informado.");
 
