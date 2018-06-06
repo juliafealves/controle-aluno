@@ -12,6 +12,9 @@ import org.junit.Test;
 public class AlunoTest {
     private Aluno aluno;
 
+    /**
+     * Cria um objeto Aluno para ser utilizado nos testes unitários abaixo.
+     */
     @Before
     public void criaAluno(){
         this.aluno = new Aluno("789", "Alan Turing", "Matemática");
