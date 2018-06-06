@@ -26,9 +26,13 @@ public class Grupo {
         return Objects.equals(this.nome.toLowerCase(), grupo.nome.toLowerCase());
     }
 
+    /**
+     * Geração de hashCode baseado no nome do grupo.
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
-
-        return Objects.hash(nome);
+        return Objects.hash(this.nome.toLowerCase());
     }
 }

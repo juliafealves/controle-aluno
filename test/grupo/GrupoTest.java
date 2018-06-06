@@ -59,4 +59,28 @@ public class GrupoTest {
     public void testGruposIguaisCaseDiferente(){
         Assert.assertTrue(this.grupo.equals(new Grupo("mOLEJÃO")));
     }
+
+    /**
+     * Verifica se dois objetos grupos são diferentes.
+     */
+    @Test
+    public void testGruposDiferentes(){
+        Assert.assertFalse(this.grupo.equals(new Grupo("Raça Negra")));
+    }
+
+    /**
+     * Verifica se dois objetos grupos iguais possuem o mesmo hashCode.
+     */
+    @Test
+    public void testGruposIguaisHashCodeIguais(){
+        Assert.assertEquals(this.grupo.hashCode(), new Grupo("Molejão").hashCode());
+    }
+
+    /**
+     * Verifica se dois objetos grupos diferentes possuem hashCode diferentes.
+     */
+    @Test
+    public void testGruposDiferentesHashCodeDiferentes(){
+        Assert.assertNotEquals(this.grupo.hashCode(), new Grupo("Raça Negra").hashCode());
+    }
 }

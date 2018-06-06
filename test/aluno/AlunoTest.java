@@ -104,7 +104,7 @@ public class AlunoTest {
      * Verifica se dois objetos alunos iguais possuem o mesmo hashCode.
      */
     @Test
-    public void testAlunoHashCodeIguais(){
+    public void testAlunosIguaisHashCodeIguais(){
         Assert.assertEquals(this.aluno.hashCode(), new Aluno("789", "Sigmund Freud", "Medicina").hashCode());
     }
 
@@ -112,7 +112,7 @@ public class AlunoTest {
      * Verifica se dois objetos alunos diferentes possuem hashCode diferentes.
      */
     @Test
-    public void testAlunoMesmoHashCodeDiferente(){
+    public void testAlunosDiferentesHashCodeDiferentes(){
         Assert.assertNotEquals(this.aluno.hashCode(), new Aluno("123", "Sigmund Freud", "Medicina").hashCode());
     }
 
