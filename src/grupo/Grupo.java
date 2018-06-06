@@ -2,9 +2,19 @@ package grupo;
 
 import java.util.Objects;
 
+/**
+ * Representa um Grupo e seus atributos.
+ *
+ * @author Júlia Fernandes Alves (julia.alves@ccc.ufcg.edu.br)
+ */
 public class Grupo {
     private String nome;
 
+    /**
+     * Cria um objeto do tipo Grupo.
+     *
+     * @param nome Nome do Grupo. É obrigatório o preenchimento.
+     */
     public Grupo(String nome) {
         if(nome == null || nome.isEmpty())
             throw new IllegalArgumentException("Nome deve ser informado.");

@@ -60,6 +60,18 @@ Matrícula: 2500
 Aluno não cadastrado.
 ``` 
 
+### 3. Cadastrar Grupo
+Para cadastrar um grupo basta colocar um nome associado a este grupo. Maiúsculas e minúsculas são indistintas (i.e. o grupo “Listas” é igual ao grupo “listas”). Uma mensagem de sucesso deve ser exibida como a indicada abaixo:
+
+```
+Grupo: Listas
+CADASTRO REALIZADO!
+```
+
+Caso o usuário cadastre um grupo com um nome já existente, a mensagem "GRUPO JÁ CADASTRADO!" deve ser exibida.
+
+
+
 
 
 ## Diagrama de Classe

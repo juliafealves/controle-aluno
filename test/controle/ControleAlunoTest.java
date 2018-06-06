@@ -28,7 +28,7 @@ public class ControleAlunoTest {
     /**
      * Verifica se é lançada uma exceção caso cadastre outro aluno com a mesma matrícula.
      */
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = UnsupportedOperationException.class)
     public void testCadastraAlunoMatriculaExistente(){
         this.controleAluno.cadastraAluno("123", "Isaac Newton", "Física");
         this.controleAluno.cadastraAluno("123", "Sigmund Freud", "Medicina");
@@ -82,5 +82,22 @@ public class ControleAlunoTest {
     @Test (expected = IllegalArgumentException.class)
     public void testConsultaAlunoMatriculaInvalida(){
         this.controleAluno.consultaAluno("invalida");
+    }
+
+    /**
+     * Verifica se um grupo é cadastrado com sucesso ao ControleAluno.
+     */
+    @Test
+    public void testCadastraGrupo(){
+        Assert.assertTrue(this.controleAluno.cadastraGrupo("Molejão"));
+    }
+
+    /**
+     * Verifica se é lançada uma exceção caso cadastre outro grupo com o mesmo nome.
+     */
+    @Test (expected = UnsupportedOperationException.class)
+    public void testCadastraGrupoNomeExistente(){
+        this.controleAluno.cadastraGrupo("Raça Negra");
+        this.controleAluno.cadastraGrupo("Raça Negra");
     }
 }

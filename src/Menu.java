@@ -18,8 +18,31 @@ public class Menu {
                 Menu.cadastraAluno(scanner);
             } else if(opcao.equals("E")){
                 Menu.exibeAluno(scanner);
+            } else if(opcao.equals("N")){
+                Menu.cadastraGrupo(scanner);
             }
         } while (!opcao.equals("S"));
+    }
+
+    /**
+     * Cadastra um grupo de estudos através do nome. O nome deve ser único, mesmo sendo maiúsculas e minúsculas
+     * são indistintas (i.e. o grupo “Listas” é igual ao grupo “listas”).
+     *
+     * Grupo: Listas
+     *
+     * @param scanner
+     */
+    private static void cadastraGrupo(Scanner scanner) {
+        try{
+            scanner.nextLine();
+            System.out.print("Grupo: ");
+            String nome = scanner.nextLine().trim();
+
+            if (Menu.controleAluno.cadastraGrupo(nome))
+                System.out.println("CADASTRO REALIZADO!");
+        }catch (Exception exception){
+            System.out.println(exception.getMessage().toUpperCase());
+        }
     }
 
     /**
@@ -84,7 +107,7 @@ public class Menu {
      */
     private static void exibeMenu(){
         String menu = System.lineSeparator();
-        String[] opcoes = {"(C)adastrar Aluno", "(E)xibir Aluno"};
+        String[] opcoes = {"(C)adastrar Aluno", "(E)xibir Aluno", "(N)ovo Grupo"};
 
         for(String opcao: opcoes)
             menu += opcao + System.lineSeparator();

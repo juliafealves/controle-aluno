@@ -1,23 +1,27 @@
 package controle;
 
 import aluno.Aluno;
+import grupo.Grupo;
 
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
+
 public class ControleAluno {
 
     private HashMap<String, Aluno> alunos;
+    private HashMap<String, Grupo> grupos;
 
     /**
      * Inicializa as coleções do ControleAluno.
      */
     public ControleAluno(){
         this.alunos = new HashMap<>();
+        this.grupos = new HashMap<>();
     }
 
     /**
-     * Cadastra uma aluno no controle de alunos. A matrícula deve ser única.
+     * Cadastra um aluno no controle de alunos. A matrícula deve ser única.
      *
      * @param matricula Matrícula única do aluno.
      * @param nome Nome completo do aluno.
@@ -26,7 +30,7 @@ public class ControleAluno {
      */
     public boolean cadastraAluno(String matricula, String nome, String curso) {
         if(this.alunos.containsKey(matricula))
-            throw new IllegalArgumentException("Matrícula já cadastrada!");
+            throw new UnsupportedOperationException("Matrícula já cadastrada!");
 
         this.alunos.put(matricula, new Aluno(matricula, nome, curso));
 
@@ -61,6 +65,21 @@ public class ControleAluno {
 
         if(!matricula.matches("[0-9]+"))
             throw new IllegalArgumentException("Matrícula inválida.");
+
+        return true;
+    }
+
+    /**
+     * Cadastra um grupo no controle de alunos. O nome deve ser único e não deve ser case sensitive.
+     *
+     * @param nome Nome do grupo único.
+     * @return Retorna true caso o grupo foi cadastrado com sucesso.
+     */
+    public boolean cadastraGrupo(String nome) {
+        if(this.grupos.containsKey(nome.toLowerCase()))
+            throw new UnsupportedOperationException("Grupo já cadastrado!");
+
+        this.grupos.put(nome.toLowerCase(), new Grupo(nome));
 
         return true;
     }
