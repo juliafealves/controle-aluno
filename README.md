@@ -45,6 +45,21 @@ MATRÍCULA JÁ CADASTRADA!
 
 Após cada ação do sistema, o menu deve ser novamente impresso e uma opção deve ser novamente selecionada.
 
+### 2. Consultar Aluno
+Para consultar alunos, apenas a matrícula deve ser pedida como entrada e a saída abaixo deve ser produzida em caso do aluno daquela matrícula existir:
+
+```
+Matrícula: 250
+Aluno: 250 - Gabriel Reyes - Computação
+```
+
+Caso o aluno não exista, uma mensagem indicando que o aluno não foi cadastrado deve ser exibida:
+
+```
+Matrícula: 2500
+Aluno não cadastrado.
+``` 
+
 
 
 ## Diagrama de Classe

@@ -112,4 +112,12 @@ public class AlunoTest {
     public void testAlunoMesmoHashCodeDiferente(){
         Assert.assertNotEquals(this.aluno.hashCode(), new Aluno("123", "Sigmund Freud", "Medicina").hashCode());
     }
+
+    /**
+     * Verifica se o toString do objeto aluno está formato corretamente.
+     */
+    @Test
+    public void testToString(){
+        Assert.assertEquals("789 - Alan Turing - Matemática", this.aluno.toString());
+    }
 }

@@ -39,6 +39,17 @@ public class Aluno {
     }
 
     /**
+     * Formata os dados básicos do aluno.
+     * Ex.: 250 - Gabriel Reyes - Computação
+     *
+     * @return Dados do aluno formatado
+     */
+    @Override
+    public String toString(){
+        return this.matricula + " - " + this.nome + " - " + this.curso;
+    }
+
+    /**
      * Verifica se dois objetos são iguais. Só serão iguais se tiverem a mesma matrícula.
      *
      * @param object
