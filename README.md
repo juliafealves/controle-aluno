@@ -101,6 +101,13 @@ Alunos do grupo Listas:
 
 Caso o grupo de estudo não esteja cadastrado, a mensagem “Grupo não cadastrado.” deve ser exibida em tela.
 
+### 6. Cadastrar Alunos que Respondem Questões no Quadro
+Para cadastrar os alunos que respondem questões, o usuário basta apenas colocar a matrícula do aluno que respondeu uma questão. Novamente a mensagem “Aluno não cadastrado.” deve ser exibida caso uma matrícula não tenha aluno associado. Abaixo um exemplo de uma alocação de sucesso.
+
+```
+Matricula: 250
+ALUNO REGISTRADO!
+```
 
 ## Diagrama de Classe
 

@@ -18,8 +18,10 @@ public class Menu {
                 Menu.cadastraAluno(scanner);
             } else if(opcao.equals("E")){
                 Menu.exibeAluno(scanner);
-            } else if(opcao.equals("N")){
+            } else if(opcao.equals("N")) {
                 Menu.cadastraGrupo(scanner);
+            }else if(opcao.equals("R")){
+                Menu.registraParticipacao(scanner);
             } else if(opcao.equals("A")){
                 System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
                 opcao = scanner.next().toUpperCase();
@@ -31,6 +33,26 @@ public class Menu {
                 }
             }
         } while (!opcao.equals("S"));
+    }
+
+    /**
+     * Registra as participações dos alunos durante aos ao responderem questões.
+     *
+     * Matricula: 250
+     *
+     * @param scanner
+     */
+    private static void registraParticipacao(Scanner scanner) {
+        try{
+            scanner.nextLine();
+            System.out.print("Matrícula: ");
+            String matricula = scanner.nextLine().trim();
+
+            if (Menu.controleAluno.registraParticipacaoAluno(matricula))
+                System.out.println("ALUNO REGISTRADO!");
+        }catch (Exception exception){
+            System.out.println(exception.getMessage().toUpperCase());
+        }
     }
 
     /**
@@ -114,7 +136,7 @@ public class Menu {
             String matricula = scanner.nextLine().trim();
             System.out.println(Menu.controleAluno.consultaAluno(matricula));
         }catch (Exception exception){
-            System.out.println(exception.getMessage());
+            System.out.println(exception.getMessage().toUpperCase());
         }
     }
 
@@ -162,7 +184,7 @@ public class Menu {
     private static void exibeMenu(){
         String menu = System.lineSeparator();
         String[] opcoes = {"(C)adastrar Aluno", "(E)xibir Aluno", "(N)ovo Grupo",
-                "(A)locar Aluno no Grupo e Imprimir Grupos"};
+                "(A)locar Aluno no Grupo e Imprimir Grupos", "(R)egistrar Aluno que Respondeu"};
 
         for(String opcao: opcoes)
             menu += opcao + System.lineSeparator();

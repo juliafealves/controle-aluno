@@ -3,6 +3,7 @@ package controle;
 import aluno.Aluno;
 import grupo.Grupo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
@@ -11,6 +12,7 @@ public class ControleAluno {
 
     private HashMap<String, Aluno> alunos;
     private HashMap<String, Grupo> grupos;
+    private ArrayList<Aluno> participacoesAlunos;
 
     /**
      * Inicializa as coleções do ControleAluno.
@@ -18,6 +20,7 @@ public class ControleAluno {
     public ControleAluno(){
         this.alunos = new HashMap<>();
         this.grupos = new HashMap<>();
+        this.participacoesAlunos = new ArrayList<>();
     }
 
     /**
@@ -134,5 +137,20 @@ public class ControleAluno {
             throw new NoSuchElementException("Grupo não cadastrado.");
 
         return this.grupos.get(grupo.toLowerCase()).toString();
+    }
+
+    /**
+     * Registra as participações dos alunos ao responderem questões em sala.
+     *
+     * @param matricula Matrícula do aluno participante.
+     * @return Retona true caso a participação do aluno tenha sido adicionada com sucesso.
+     */
+    public boolean registraParticipacaoAluno(String matricula) {
+        this.validaMatricula(matricula);
+
+        if(!this.alunos.containsKey(matricula))
+            throw new NoSuchElementException("Aluno não cadastrado.");
+
+        return this.participacoesAlunos.add(this.alunos.get(matricula));
     }
 }

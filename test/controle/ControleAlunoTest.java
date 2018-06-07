@@ -205,4 +205,46 @@ public class ControleAlunoTest {
     public void testListaAlunosAlocadosGrupoNomeNulo(){
         this.controleAluno.listaAlunosAlocados(null);
     }
+
+    /**
+     * Verifica se é possível consultar as informações de um aluno previamente cadastrado.
+     */
+    @Test
+    public void testRegistraParticipacaoAluno(){
+        this.controleAluno.cadastraAluno("123", "Isaac Newton", "Física");
+        Assert.assertTrue(this.controleAluno.registraParticipacaoAluno("123"));
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente registra a participação de um aluno que ainda não foi cadastrado.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void testRegistraParticipacaoAlunoInexistente(){
+        this.controleAluno.registraParticipacaoAluno("123");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente registra a participação de um aluno com matrícula vazia.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testRegistraParticipacaoAlunoMatriculaVazia(){
+        this.controleAluno.registraParticipacaoAluno("");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente registra a participação de um aluno com matrícula nula.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testRegistraParticipacaoAlunoMatriculaNula(){
+        this.controleAluno.registraParticipacaoAluno(null);
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente registra a participação de um aluno com matrícula inválida.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testRegistraParticipacaoAlunoMatriculaInvalida(){
+        this.controleAluno.registraParticipacaoAluno("invalida");
+    }
+
 }
