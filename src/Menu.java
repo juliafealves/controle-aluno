@@ -20,8 +20,39 @@ public class Menu {
                 Menu.exibeAluno(scanner);
             } else if(opcao.equals("N")){
                 Menu.cadastraGrupo(scanner);
+            } else if(opcao.equals("A")){
+                System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
+                opcao = scanner.next().toUpperCase();
+
+                if(opcao.equals("A")){
+                    Menu.alocaAluno(scanner);
+                }
             }
         } while (!opcao.equals("S"));
+    }
+
+    /**
+     * Aloca um aluno em grupo de estudos. Sendo informado a matrícula do aluno e o nome do grupo de estudos.
+     * É necessário o cadastro prévio do aluno e grupo no sistema.
+     *
+     * Matricula: 250
+     * Grupo: LISTAS
+     *
+     * @param scanner
+     */
+    private static void alocaAluno(Scanner scanner) {
+        try{
+            scanner.nextLine();
+            System.out.print("Matrícula: ");
+            String matricula = scanner.nextLine().trim();
+            System.out.print("Grupo: ");
+            String grupo = scanner.nextLine().trim();
+
+            if (Menu.controleAluno.alocaAluno(matricula, grupo))
+                System.out.println("ALUNO ALOCADO!");
+        }catch (Exception exception){
+            System.out.println(exception.getMessage().toUpperCase());
+        }
     }
 
     /**
@@ -107,7 +138,8 @@ public class Menu {
      */
     private static void exibeMenu(){
         String menu = System.lineSeparator();
-        String[] opcoes = {"(C)adastrar Aluno", "(E)xibir Aluno", "(N)ovo Grupo"};
+        String[] opcoes = {"(C)adastrar Aluno", "(E)xibir Aluno", "(N)ovo Grupo",
+                "(A)locar Aluno no Grupo e Imprimir Grupos"};
 
         for(String opcao: opcoes)
             menu += opcao + System.lineSeparator();

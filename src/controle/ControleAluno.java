@@ -70,6 +70,19 @@ public class ControleAluno {
     }
 
     /**
+     * Verfica se o nome do grupo de estudos é válido.
+     *
+     * @param nome Nome do grupo de estudos.
+     * @return Retona true caso o nome seja válido.
+     */
+    private boolean validaNomeGrupo(String nome){
+        if(nome == null || nome.isEmpty())
+            throw new IllegalArgumentException("Nome do Grupo deve ser informada.");
+
+        return true;
+    }
+
+    /**
      * Cadastra um grupo no controle de alunos. O nome deve ser único e não deve ser case sensitive.
      *
      * @param nome Nome do grupo único.
@@ -80,6 +93,28 @@ public class ControleAluno {
             throw new UnsupportedOperationException("Grupo já cadastrado!");
 
         this.grupos.put(nome.toLowerCase(), new Grupo(nome));
+
+        return true;
+    }
+
+    /**
+     * Aloca um aluno em um grupo de estudos.
+     *
+     * @param matricula Matrícula do aluno a ser alocado.
+     * @param grupo Nome do grupo de estudos.
+     * @return Retorna true caso o aluno tenha sido alocado com sucesso.
+     */
+    public boolean alocaAluno(String matricula, String grupo) {
+        this.validaMatricula(matricula);
+        this.validaNomeGrupo(grupo);
+
+        if(!this.grupos.containsKey(grupo.toLowerCase()))
+            throw new NoSuchElementException("Grupo não cadastrado.");
+
+        if(!this.alunos.containsKey(matricula))
+            throw new NoSuchElementException("Aluno não cadastrado.");
+
+        this.grupos.get(grupo.toLowerCase()).adicionaAluno(this.alunos.get(matricula));
 
         return true;
     }

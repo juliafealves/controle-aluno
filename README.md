@@ -70,9 +70,24 @@ CADASTRO REALIZADO!
 
 Caso o usuário cadastre um grupo com um nome já existente, a mensagem "GRUPO JÁ CADASTRADO!" deve ser exibida.
 
+### 4. Alocar Alunos em Grupos
 
+Durante a alocação, o usuário é perguntado se ele deseja alocar ou imprimir um grupo.
 
+```
+(A)locar Aluno ou (I)mprimir Grupo? A
+```
 
+Caso o usuário selecione alocar, ele segue para o pedido de entrada apresentado abaixo.
+Para alocar alunos em grupos, basta selecionar uma matrícula e nome do grupo para realizar a alocação. Caso o aluno já esteja no grupo, a mesma mensagem pode ser repetida e nada é alterado na sua alocação.
+
+```
+Matricula: 250
+Grupo: LISTAS
+ALUNO ALOCADO!
+```
+
+Caso o aluno não esteja cadastrado ou o grupo não esteja cadastrado, as mensagens: “Aluno não cadastrado.” e “Grupo não cadastrado.” devem ser impressas, respectivamente.
 
 ## Diagrama de Classe
 

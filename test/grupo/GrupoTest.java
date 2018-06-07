@@ -1,5 +1,6 @@
 package grupo;
 
+import aluno.Aluno;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -82,5 +83,16 @@ public class GrupoTest {
     @Test
     public void testGruposDiferentesHashCodeDiferentes(){
         Assert.assertNotEquals(this.grupo.hashCode(), new Grupo("Raça Negra").hashCode());
+    }
+
+    /**
+     * Verifica se dois objetos grupos diferentes possuem hashCode diferentes.
+     */
+    @Test
+    public void testAdicionaAluno(){
+        Aluno aluno = new Aluno("123", "Alan Turing", "Matemática");
+        this.grupo.adicionaAluno(aluno);
+        String toString = "Alunos do grupo Molejão:" + System.lineSeparator() + "* " + aluno.toString() + System.lineSeparator();
+        Assert.assertEquals(toString, this.grupo.toString());
     }
 }

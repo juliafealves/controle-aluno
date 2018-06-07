@@ -1,5 +1,8 @@
 package grupo;
 
+import aluno.Aluno;
+
+import java.util.HashSet;
 import java.util.Objects;
 
 /**
@@ -9,6 +12,7 @@ import java.util.Objects;
  */
 public class Grupo {
     private String nome;
+    private HashSet<Aluno> alunos;
 
     /**
      * Cria um objeto do tipo Grupo.
@@ -20,6 +24,30 @@ public class Grupo {
             throw new IllegalArgumentException("Nome deve ser informado.");
 
         this.nome = nome;
+        this.alunos = new HashSet<>();
+    }
+
+    /**
+     * Adiciona um aluno no grupo.
+     * @param aluno
+     */
+    public void adicionaAluno(Aluno aluno) {
+        this.alunos.add(aluno);
+    }
+
+    /**
+     * Lista todos os alunos que participam do grupo.
+     *
+     * @return
+     */
+    @Override
+    public String toString(){
+        String grupo = "Alunos do grupo " + this.nome + ":" + System.lineSeparator();
+
+        for(Aluno aluno: this.alunos)
+            grupo += "* " + aluno.toString() + System.lineSeparator();
+
+        return grupo;
     }
 
     /**

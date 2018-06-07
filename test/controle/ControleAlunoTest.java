@@ -100,4 +100,72 @@ public class ControleAlunoTest {
         this.controleAluno.cadastraGrupo("Raça Negra");
         this.controleAluno.cadastraGrupo("Raça Negra");
     }
+
+    /**
+     * Verifica se um aluno é alocado em um grupo com sucesso ao ControleAluno.
+     */
+    @Test
+    public void testAlocaAluno(){
+        this.controleAluno.cadastraGrupo("Molejão");
+        this.controleAluno.cadastraAluno("123", "Isaac Newton", "Física");
+        Assert.assertTrue(this.controleAluno.alocaAluno("123", "Molejão"));
+    }
+
+    /**
+     * Verifica se é lançada uma exceção caso tente alocar um aluno existente em um grupo não cadastrado.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void testAlocaAlunoGrupoNaoExistente(){
+        this.controleAluno.cadastraAluno("123", "Isaac Newton", "Física");
+        this.controleAluno.alocaAluno("123", "Molejão");
+    }
+
+    /**
+     * Verifica se é lançada uma exceção caso tente alocar um aluno não cadastrado.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void testAlocaAlunoNaoExistente(){
+        this.controleAluno.cadastraGrupo("Molejão");
+        this.controleAluno.alocaAluno("123", "Molejão");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente alocar um aluno com matrícula vazia.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testAlocaAlunoMatriculaVazia(){
+        this.controleAluno.alocaAluno("", "Molejão");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente alocar um aluno com matrícula nula.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testAlocaAlunoMatriculaNula(){
+        this.controleAluno.alocaAluno(null, "Molejão");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente alocar um aluno com matrícula inválida.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testAlocaAlunoMatriculaInvalida(){
+        this.controleAluno.alocaAluno("invalida", "Molejão");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente alocar um aluno com nome do grupo vazio.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testAlocaAlunoNomeGrupoVazio(){
+        this.controleAluno.alocaAluno("123", "");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente alocar um aluno com nome do grupo nulo.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testAlocaAlunoNomeGrupoNulo(){
+        this.controleAluno.alocaAluno(null, "");
+    }
 }
