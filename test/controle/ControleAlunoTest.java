@@ -168,4 +168,41 @@ public class ControleAlunoTest {
     public void testAlocaAlunoNomeGrupoNulo(){
         this.controleAluno.alocaAluno(null, "");
     }
+
+    /**
+     * Verifica a listagem de todos os alunos cadastrados em um grupo.
+     */
+    @Test
+    public void testListaAlunosAlocados(){
+        this.controleAluno.cadastraAluno("123", "Alan Turing", "Matemática");
+        this.controleAluno.cadastraGrupo("Molejão");
+        this.controleAluno.alocaAluno("123", "Molejão");
+
+        String toString = "Alunos do grupo Molejão:" + System.lineSeparator() + "* 123 - Alan Turing - Matemática" + System.lineSeparator();
+        Assert.assertEquals(toString, this.controleAluno.listaAlunosAlocados("MOLEJÃO"));
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente listar os alunos de um grupo que ainda não foi cadastrado.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void testListaAlunosAlocadosGrupoNaoExistente(){
+        this.controleAluno.listaAlunosAlocados("MOLEJÃO");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente listar os alunos de um grupo com nome vazio.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testListaAlunosAlocadosGrupoNomeVazio(){
+        this.controleAluno.listaAlunosAlocados("");
+    }
+
+    /**
+     *  Verifica se é lançada uma exceção caso tente listar os alunos de um grupo com nome nulo.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testListaAlunosAlocadosGrupoNomeNulo(){
+        this.controleAluno.listaAlunosAlocados(null);
+    }
 }

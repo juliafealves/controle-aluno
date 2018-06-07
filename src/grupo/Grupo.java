@@ -44,8 +44,12 @@ public class Grupo {
     public String toString(){
         String grupo = "Alunos do grupo " + this.nome + ":" + System.lineSeparator();
 
-        for(Aluno aluno: this.alunos)
-            grupo += "* " + aluno.toString() + System.lineSeparator();
+        if(!this.alunos.isEmpty()) {
+            for (Aluno aluno : this.alunos)
+                grupo += "* " + aluno.toString() + System.lineSeparator();
+        }else{
+            grupo += "** Nenhum aluno adicionado. **";
+        }
 
         return grupo;
     }

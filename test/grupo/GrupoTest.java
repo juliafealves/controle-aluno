@@ -87,12 +87,22 @@ public class GrupoTest {
 
     /**
      * Verifica se dois objetos grupos diferentes possuem hashCode diferentes.
+     * Indiretamente, verifica se o toString está funcionando corretamente.
      */
     @Test
     public void testAdicionaAluno(){
         Aluno aluno = new Aluno("123", "Alan Turing", "Matemática");
         this.grupo.adicionaAluno(aluno);
         String toString = "Alunos do grupo Molejão:" + System.lineSeparator() + "* " + aluno.toString() + System.lineSeparator();
+        Assert.assertEquals(toString, this.grupo.toString());
+    }
+
+    /**
+     * Verifica se o toString do objeto grupo está formato corretamente.
+     */
+    @Test
+    public void testToString(){
+        String toString = "Alunos do grupo Molejão:" + System.lineSeparator() + "** Nenhum aluno adicionado. **";
         Assert.assertEquals(toString, this.grupo.toString());
     }
 }

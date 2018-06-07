@@ -26,9 +26,32 @@ public class Menu {
 
                 if(opcao.equals("A")){
                     Menu.alocaAluno(scanner);
+                } else if(opcao.equals("I")){
+                    Menu.imprimeGrupo(scanner);
                 }
             }
         } while (!opcao.equals("S"));
+    }
+
+    /**
+     * Exibe as informações referente ao grupo de estudos.
+     *
+     * Grupo: listas
+     * Alunos do grupo Listas:
+     * * 250 - Gabriel Reyes - Computação
+     * * 200 - Angela Ziegler - Medicina
+     *
+     * @param scanner
+     */
+    private static void imprimeGrupo(Scanner scanner) {
+        try{
+            scanner.nextLine();
+            System.out.print("Grupo: ");
+            String grupo = scanner.nextLine().trim();
+            System.out.println(Menu.controleAluno.listaAlunosAlocados(grupo));
+        }catch (Exception exception){
+            System.out.println(exception.getMessage().toUpperCase());
+        }
     }
 
     /**

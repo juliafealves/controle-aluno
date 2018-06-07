@@ -89,6 +89,19 @@ ALUNO ALOCADO!
 
 Caso o aluno não esteja cadastrado ou o grupo não esteja cadastrado, as mensagens: “Aluno não cadastrado.” e “Grupo não cadastrado.” devem ser impressas, respectivamente.
 
+### 5. Imprimir Grupos
+Caso o usuário peça para imprimir um grupo, o sistema deve pedir como entrada o nome do grupo a ser impresso e exibir o nome do grupo  (como inserido originalmente) e os alunos que fazem parte desse grupo. A ordem que os alunos são impressos não é importante para o sistema.
+
+```
+Grupo: listas
+Alunos do grupo Listas:
+* 250 - Gabriel Reyes - Computação
+* 200 - Angela Ziegler - Medicina
+```
+
+Caso o grupo de estudo não esteja cadastrado, a mensagem “Grupo não cadastrado.” deve ser exibida em tela.
+
+
 ## Diagrama de Classe
 
 ![Diagrama de Classe](dc_controle_aluno.jpeg)
