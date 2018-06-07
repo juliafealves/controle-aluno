@@ -2,6 +2,10 @@
 Mini projeto para **Controle de Alunos e Grupos de Estudos** para a disciplina de Laboratório de Programação II da UFCG
 referente ao curso de Ciências da Computação. Desenvolvido em Java 8 e uso da metodologia TDD com JUnit.
 
+## Documentação
+
+Documentação do projeto: https://juliafealves.github.io/controle-aluno/
+
 ## Requisitos do Projeto:
 
 Neste laboratório, construiremos um sistema que será a base do controle de alunos de Programação II. Como sistema, deve ser possível primeiramente cadastrar e consultar alunos. Cada aluno tem uma matrícula, nome e curso (todos strings). Cada consulta deve procurar o aluno a partir de sua matrícula. O aluno é identificado unicamente pela matrícula e não deve ser possível alterar os dados dos alunos uma vez cadastrado.
