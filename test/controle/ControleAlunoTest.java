@@ -247,4 +247,15 @@ public class ControleAlunoTest {
         this.controleAluno.registraParticipacaoAluno("invalida");
     }
 
+    /**
+     * Verifica se é possível consultar as informações de um aluno previamente cadastrado.
+     */
+    @Test
+    public void testListarAlunosParticipantes(){
+        this.controleAluno.cadastraAluno("123", "Alan Turing", "Matemática");
+        this.controleAluno.registraParticipacaoAluno("123");
+        String toString = "Alunos:" + System.lineSeparator() + "1. 123 - Alan Turing - Matemática";
+        Assert.assertEquals(toString, this.controleAluno.listaAlunosParticipantes());
+    }
+
 }

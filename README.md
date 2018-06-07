@@ -109,6 +109,19 @@ Matricula: 250
 ALUNO REGISTRADO!
 ```
 
+### 7. Imprimir Alunos que Respondem Questões no Quadro
+
+Por fim, ao imprimir os alunos que responderam questões, a lista de alunos deve ser impressa juntamente com a ordem que os alunos responderam questões, como indicado no exemplo abaixo.
+
+```
+Alunos:
+1. 250 - Gabriel Reyes - Computação
+2. 200 - Angela Ziegler - Medicina
+3. 250 - Gabriel Reyes - Computação
+4. 201 - Torbjorn Lindholm - Engenharia Mecanica
+5. 201 - Torbjorn Lindholm - Engenharia Mecanica
+```
+
 ## Diagrama de Classe
 
 ![Diagrama de Classe](dc_controle_aluno.jpeg)

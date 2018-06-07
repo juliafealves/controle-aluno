@@ -20,8 +20,10 @@ public class Menu {
                 Menu.exibeAluno(scanner);
             } else if(opcao.equals("N")) {
                 Menu.cadastraGrupo(scanner);
-            }else if(opcao.equals("R")){
+            }else if(opcao.equals("R")) {
                 Menu.registraParticipacao(scanner);
+            }else if(opcao.equals("I")){
+                Menu.exibeAlunosParticipantes();
             } else if(opcao.equals("A")){
                 System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
                 opcao = scanner.next().toUpperCase();
@@ -33,6 +35,21 @@ public class Menu {
                 }
             }
         } while (!opcao.equals("S"));
+    }
+
+    /**
+     * Exibe os alunos que participaram respondendo as questõe em sala.
+     *
+     * Alunos:
+     * 1. 250 - Gabriel Reyes - Computação
+     * 2. 200 - Angela Ziegler - Medicina
+     * 3. 250 - Gabriel Reyes - Computação
+     * 4. 201 - Torbjorn Lindholm - Engenharia Mecanica
+     * 5. 201 - Torbjorn Lindholm - Engenharia Mecanica
+     *
+     */
+    private static void exibeAlunosParticipantes() {
+        System.out.println(Menu.controleAluno.listaAlunosParticipantes());
     }
 
     /**
@@ -184,7 +201,8 @@ public class Menu {
     private static void exibeMenu(){
         String menu = System.lineSeparator();
         String[] opcoes = {"(C)adastrar Aluno", "(E)xibir Aluno", "(N)ovo Grupo",
-                "(A)locar Aluno no Grupo e Imprimir Grupos", "(R)egistrar Aluno que Respondeu"};
+                "(A)locar Aluno no Grupo e Imprimir Grupos", "(R)egistrar Aluno que Respondeu",
+                "(I)mprimir Alunos que Responderam"};
 
         for(String opcao: opcoes)
             menu += opcao + System.lineSeparator();

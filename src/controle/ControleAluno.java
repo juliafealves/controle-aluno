@@ -153,4 +153,24 @@ public class ControleAluno {
 
         return this.participacoesAlunos.add(this.alunos.get(matricula));
     }
+
+    /**
+     * Lista os alunos que tiveram participações em sala de aula.
+     * Listado em ordem cronológica.
+     *
+     * @return String formatada com todos os alunos participantes.
+     */
+    public String listaAlunosParticipantes() {
+        String participantes = "Alunos:" + System.lineSeparator();
+
+        if(!this.participacoesAlunos.isEmpty()) {
+            int posicao = 0;
+            for (Aluno aluno : this.participacoesAlunos)
+                participantes += ++posicao + ". " + aluno.toString();
+        } else {
+            participantes += "** Nenhum aluno participante. **";
+        }
+
+        return participantes;
+    }
 }
