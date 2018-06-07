@@ -2,39 +2,76 @@ import controle.ControleAluno;
 
 import java.util.Scanner;
 
+/**
+ * Classe Menu responsável pela interface com usuário a fim de permitir gerenciar o Controle de Alunos e Grupos.
+ *
+ * @author Júlia Fernandes Alves (julia.alves@ccc.ufcg.edu.br)
+ */
 public class Menu {
     private static ControleAluno controleAluno;
 
+    /**
+     * Método principal para execução do programa. Existe as seguintes opções:
+     *
+     * (C)adastrar Aluno
+     * (E)xibir Aluno
+     * (N)ovo Grupo
+     * (A)locar Aluno no Grupo e Imprimir Grupos
+     * (R)egistrar Aluno que Respondeu
+     * (I)mprimir Alunos que Responderam
+     * (O)ra, vamos fechar o programa!
+     *
+     * Opção>
+     *
+     * Os caracteres entre parenteses indicam a opção a ser escolhida.
+     *
+     * @param args
+     */
     public static void main(String[] args){
-        Menu.controleAluno = new ControleAluno();
-        String opcao = "";
-        Scanner scanner = new Scanner(System.in);
+        try {
+            Menu.controleAluno = new ControleAluno();
+            String opcao = "";
+            Scanner scanner = new Scanner(System.in);
 
-        do{
-            Menu.exibeMenu();
-            opcao = scanner.next().toUpperCase();
+            do {
+                Menu.exibeMenu();
+                opcao = scanner.nextLine().trim().toUpperCase();
 
-            if(opcao.equals("C")){
-                Menu.cadastraAluno(scanner);
-            } else if(opcao.equals("E")){
-                Menu.exibeAluno(scanner);
-            } else if(opcao.equals("N")) {
-                Menu.cadastraGrupo(scanner);
-            }else if(opcao.equals("R")) {
-                Menu.registraParticipacao(scanner);
-            }else if(opcao.equals("I")){
-                Menu.exibeAlunosParticipantes();
-            } else if(opcao.equals("A")){
-                System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
-                opcao = scanner.next().toUpperCase();
+                if (opcao == null || opcao.equals(""))
+                    throw new RuntimeException("Opção nula ou vazia.");
 
-                if(opcao.equals("A")){
-                    Menu.alocaAluno(scanner);
-                } else if(opcao.equals("I")){
-                    Menu.imprimeGrupo(scanner);
+                if (opcao.equals("C")) {
+                    Menu.cadastraAluno(scanner);
+                } else if (opcao.equals("E")) {
+                    Menu.exibeAluno(scanner);
+                } else if (opcao.equals("N")) {
+                    Menu.cadastraGrupo(scanner);
+                } else if (opcao.equals("R")) {
+                    Menu.registraParticipacao(scanner);
+                } else if (opcao.equals("I")) {
+                    Menu.exibeAlunosParticipantes();
+                } else if (opcao.equals("A")) {
+                    System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
+                    opcao = scanner.nextLine().trim().toUpperCase();
+
+                    if (opcao.equals("A")) {
+                        Menu.alocaAluno(scanner);
+                    } else if (opcao.equals("I")) {
+                        Menu.imprimeGrupo(scanner);
+                    } else if (opcao == null || opcao.equals("")){
+                        throw new RuntimeException("Opção nula ou vazia.");
+                    } else {
+                        System.out.println("OPÇÃO INVÁLIDA");
+                        opcao = "";
+                    }
+                } else if (!opcao.equals("O")) {
+                    System.out.println("OPÇÃO INVÁLIDA");
                 }
-            }
-        } while (!opcao.equals("S"));
+            } while (!opcao.equals("O"));
+        } catch(RuntimeException runtimeException){
+            System.out.println(runtimeException.getMessage());
+            System.exit(1);
+        }
     }
 
     /**
@@ -61,7 +98,6 @@ public class Menu {
      */
     private static void registraParticipacao(Scanner scanner) {
         try{
-            scanner.nextLine();
             System.out.print("Matrícula: ");
             String matricula = scanner.nextLine().trim();
 
@@ -84,7 +120,6 @@ public class Menu {
      */
     private static void imprimeGrupo(Scanner scanner) {
         try{
-            scanner.nextLine();
             System.out.print("Grupo: ");
             String grupo = scanner.nextLine().trim();
             System.out.println(Menu.controleAluno.listaAlunosAlocados(grupo));
@@ -104,7 +139,6 @@ public class Menu {
      */
     private static void alocaAluno(Scanner scanner) {
         try{
-            scanner.nextLine();
             System.out.print("Matrícula: ");
             String matricula = scanner.nextLine().trim();
             System.out.print("Grupo: ");
@@ -127,7 +161,6 @@ public class Menu {
      */
     private static void cadastraGrupo(Scanner scanner) {
         try{
-            scanner.nextLine();
             System.out.print("Grupo: ");
             String nome = scanner.nextLine().trim();
 
@@ -148,7 +181,6 @@ public class Menu {
      */
     private static void exibeAluno(Scanner scanner) {
         try{
-            scanner.nextLine();
             System.out.print("Matrícula: ");
             String matricula = scanner.nextLine().trim();
             System.out.println(Menu.controleAluno.consultaAluno(matricula));
@@ -169,7 +201,6 @@ public class Menu {
      */
     private static void cadastraAluno(Scanner scanner) {
         try{
-            scanner.nextLine();
             System.out.print("Matrícula: ");
             String matricula = scanner.nextLine().trim();
             System.out.print("Nome: ");
@@ -202,7 +233,7 @@ public class Menu {
         String menu = System.lineSeparator();
         String[] opcoes = {"(C)adastrar Aluno", "(E)xibir Aluno", "(N)ovo Grupo",
                 "(A)locar Aluno no Grupo e Imprimir Grupos", "(R)egistrar Aluno que Respondeu",
-                "(I)mprimir Alunos que Responderam"};
+                "(I)mprimir Alunos que Responderam", "(O)ra, vamos fechar o programa!"};
 
         for(String opcao: opcoes)
             menu += opcao + System.lineSeparator();

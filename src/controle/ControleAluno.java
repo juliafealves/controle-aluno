@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
-
+/**
+ * Responsável por gerenciar os alunos e os grupos de estudos.
+ * @author Júlia Fernandes Alves (julia.alves@ccc.ufcg.edu.br)
+ */
 public class ControleAluno {
 
     private HashMap<String, Aluno> alunos;

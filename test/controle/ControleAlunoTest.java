@@ -6,6 +6,11 @@ import org.junit.Test;
 
 import java.util.NoSuchElementException;
 
+/**
+ * Responsável por realizar testes unitários da classe ControleAluno.
+ *
+ * @author Júlia Fernandes Alves (julia.alves@ccc.ufcg.edu.br)
+ */
 public class ControleAlunoTest {
     private ControleAluno controleAluno;
 
