@@ -52,14 +52,14 @@ public class Aluno {
     /**
      * Verifica se dois objetos são iguais. Só serão iguais se tiverem a mesma matrícula.
      *
-     * @param object
-     * @return
+     * @param objeto Objeto a ser comparado com objeto Aluno.
+     * @return Retorna true caso os objetos possuam a mesma matrícula.
      */
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        Aluno aluno = (Aluno) object;
+    public boolean equals(Object objeto) {
+        if (this == objeto) return true;
+        if (objeto == null || getClass() != objeto.getClass()) return false;
+        Aluno aluno = (Aluno) objeto;
 
         return Objects.equals(matricula, aluno.matricula);
     }
@@ -67,7 +67,7 @@ public class Aluno {
     /**
      * Geração de hashCode baseado na matrícula do aluno.
      *
-     * @return
+     * @return Retorna o hashCode da matrícula.
      */
     @Override
     public int hashCode() {

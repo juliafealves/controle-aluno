@@ -21,11 +21,11 @@ public class Menu {
      * (I)mprimir Alunos que Responderam
      * (O)ra, vamos fechar o programa!
      *
-     * Opção>
+     * Opção
      *
      * Os caracteres entre parenteses indicam a opção a ser escolhida.
      *
-     * @param args
+     * @param args Não aceita argumentos via console.
      */
     public static void main(String[] args){
         try {

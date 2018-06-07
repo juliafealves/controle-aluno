@@ -11,6 +11,7 @@ import java.util.Objects;
  * @author Júlia Fernandes Alves (julia.alves@ccc.ufcg.edu.br)
  */
 public class Grupo {
+
     private String nome;
     private HashSet<Aluno> alunos;
 
@@ -29,7 +30,8 @@ public class Grupo {
 
     /**
      * Adiciona um aluno no grupo.
-     * @param aluno
+     *
+     * @param aluno Aluno a ser adicionado no grupo.
      */
     public void adicionaAluno(Aluno aluno) {
         this.alunos.add(aluno);
@@ -38,7 +40,7 @@ public class Grupo {
     /**
      * Lista todos os alunos que participam do grupo.
      *
-     * @return
+     * @return String formatada com todos os alunos que fazem parte do grupo.
      */
     @Override
     public String toString(){
@@ -56,8 +58,8 @@ public class Grupo {
 
     /**
      * Verifica se dois objetos são iguais. Só serão iguais se tiverem o mesmo nome, não é case sensitive.
-     * @param objeto
-     * @return
+     * @param objeto Objeto a ser comparado com objeto Grupo.
+     * @return Retorna true caso os objetos possuam o mesmo nome.
      */
     @Override
     public boolean equals(Object objeto) {
@@ -71,7 +73,7 @@ public class Grupo {
     /**
      * Geração de hashCode baseado no nome do grupo.
      *
-     * @return
+     * @return Retorna o hashCode baseado no nome.
      */
     @Override
     public int hashCode() {
